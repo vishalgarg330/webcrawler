@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Webcrawler</title>
+  <meta charset="utf-8">
+  <link rel="icon" href="" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  html {
+    overflow: scroll;
+    overflow-x: hidden;
+    }
+    ::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
+    }
+    img{
+      width: 100%;
+    }
+    .news-heading{
+      height: 50px;
+      overflow: scroll;
+    }
+    .news-body{
+      height: 200px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: scroll;
+    }
+  </style>
+</head>
+<body>
+  <div class="modal fade" id="myModal" role="dialog" style="padding:0 !important;z-index:9999999;">
+      <div class="modal-dialog modal-lg" style="width:90% !important;height:100% !important;z-index:9999999;padding:0 !important">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" id="pop-title">
+            </h4>
+          </div>
+          <div class="modal-body">
+            <iframe src="" style="height:400px;width:100%;border:0" name="news-iframe" id="news-iframe">
+
+            </iframe>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div style="width:100%;height:50px;background: red;position:fixed;z-index:99999">
+
+</div>
+
+<div class="container" style="padding-top:100px">
+    <% for(i=0 ; i < news.length ; i++) { %>
+      <% if(news[i].description && news[i].title) { %>
+          <div class="col-sm-4">
+            <div class="panel-group">
+              <div class="panel panel-default">
+                <div class="panel-heading news-heading">
+                  <%- news[i].title %>
+                </div>
+                <div class="panel-body">
+                  <div class="col-sm-12 news-body">
+                    <%- news[i].description %>
+                  </div>
+                </div>
+                <div class="panel-footer" style="text-align:center">
+                    <a class="btn btn-primary" onclick="openPop('<%- news[i].title %>','<%- news[i].link %>')">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% } %>
+    <% } %>
+</div>
+
+<script>
+frames['news-iframe'].document.head.appendChild('<style>body{display:none !important}</style>');
+function openPop(title,newsurl){
+  $('#pop-title').html(title);
+  $('#news-iframe').attr('src',newsurl);
+  $('#myModal').modal('show');
+}
+</script>
+
+</body>
+</html>
