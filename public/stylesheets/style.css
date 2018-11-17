@@ -32,3 +32,57 @@
      text-align:center;
      font:bold 30px Georgia;
 }
+.my-footer{
+    margin-top: 15%;
+    background-color: #1976D2;
+
+}
+
+
+.my-footer .footer-top{
+    border-bottom: 2px solid #029cee;
+    border-radius: 8px;
+}
+
+.my-footer .footer-top h2{
+    color:#fff;
+    font:bold 18px Helvetica;
+    margin-top: 5px;
+}
+
+.my-footer .footer-middle p{
+    display:inline-block;
+    color:#fff;
+    font:bold 12px Helvetica;
+    padding-top: 2px;
+}
+
+.my-footer .image-icon{
+    -webkit-transition:all 1s ;
+}
+.my-footer .image-icon:hover{
+    opacity: 0.5;
+}
+.my-footer .footer-icon{
+    color:white;
+    font-size:15px;
+    width:28px;
+    height:28px;
+
+}
+
+.abc{
+    display:inline-block;
+    border-right:  3px solid #fff;
+    margin-left: 2px;
+    border-radius: 2px;
+    height: 20px;
+}
+
+.footer-bottom {
+    color:white;
+    font-weight: 500;
+    font-size: 12px;
+    margin-top: 2px;
+    padding-bottom: 1px;
+}
