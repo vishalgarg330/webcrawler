@@ -35,30 +35,21 @@
       margin: 0 !important;
       overflow: scroll;
     }
+  .header-body{
+      margin:0px;
+      padding: 20px;
+      color:#fff;
+      width: 100%;
+      text-shadow:0 1px 1px rgba(0,0,0,0.5);
+      font-weight:500;
+      text-align:center;
+      font:bold 30px Georgia;
   </style>
 </head>
 <body>
-  <div class="modal fade" id="myModal" role="dialog" style="padding:0 !important;z-index:9999999;">
-      <div class="modal-dialog modal-lg" style="width:90% !important;height:100% !important;z-index:9999999;padding:0 !important">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title" id="pop-title">
-            </h4>
-          </div>
-          <div class="modal-body">
-            <iframe src="" style="height:400px;width:100%;border:0" name="news-iframe" id="news-iframe">
 
-            </iframe>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<div style="width:100%;height:50px;background: red;position:fixed;z-index:99999">
+<div style="width:100%;height:90px;background: #1976D2;position:fixed;z-index:99999">
+    <h3 class="header-body">Welcome To News Web Crawler </h3>
 
 </div>
 
@@ -67,9 +58,9 @@
       <% if(news[i].description && news[i].title) { %>
           <div class="col-sm-4">
             <div class="panel-group">
-              <div class="panel panel-default">
-                <div class="panel-heading news-heading">
-                  <%- news[i].title %>
+              <div class="panel panel-primary">
+                <div class="panel-heading news-heading" style="">
+                 <strong> <%- news[i].title %></strong>
                 </div>
                 <div class="panel-body">
                   <div class="col-sm-12 news-body">
@@ -85,6 +76,26 @@
         <% } %>
     <% } %>
 </div>
+<div class="modal fade" id="myModal" role="dialog" style="padding:0 !important;z-index:9999999;">
+  <div class="modal-dialog modal-lg" style="width:90% !important;height:100% !important;z-index:9999999;padding:0 !important">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="pop-title">
+        </h4>
+      </div>
+      <div class="modal-body">
+        <iframe src="" style="height:400px;width:100%;border:0" name="news-iframe" id="news-iframe">
+
+        </iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script>
 frames['news-iframe'].document.head.appendChild('<style>body{display:none !important}</style>');
