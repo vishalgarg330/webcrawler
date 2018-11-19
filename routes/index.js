@@ -26,7 +26,3 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('news/:name',function (req,res) {
-
-});
-module.exports = router;
